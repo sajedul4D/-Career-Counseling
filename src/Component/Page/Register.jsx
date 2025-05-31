@@ -2,30 +2,54 @@ import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { authContext } from '../Authprovider/AuthProvider';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import auth from '../firebase';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-  const {handleRegister}=useContext(authContext)
-
+  const {handleRegister,mangeProfile}=useContext(authContext)
+const provider=new GoogleAuthProvider()
   const [error,setError]=useState("")
   const [showPassword,setShowpassword]=useState(false)
     const handleUserRegister=(e)=>{
         e.preventDefault()
+        
         const form=new FormData(e.target)
         const name=form.get("name")
         const photo=form.get("photo")
         const email=form.get("email")
         const password=form.get("password")
-        setError('')
+        setError(' ')
+        const passwordRegex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[^\s]{6,}$/;
+          if(!passwordRegex.test(password)){
+           
+            toast.error('Password must contain at least one uppercase, one special characters, one lowercase letter and be at least 6 characters long.')
+            return;
+        }
+       
         handleRegister(email,password)
         .then(result=>{
+          mangeProfile(name,photo)
           console.log(result.user);
+          toast.success("successFully create a account")
+          
         })
         .catch(err=>{
           console.log(err);
+          toast.error("auth/email-already-in-use")
         })
         
 
-        
+        const handleGoogle=()=>{
+          signInWithPopup(auth,provider).then(result=>{
+            console.log(result.user);
+            toast.success("SuccessFully Google Login")
+          })
+          .catch(err=>{
+            console.error(err)
+            toast.error("Google login failed");
+          })
+        }
         
        
         

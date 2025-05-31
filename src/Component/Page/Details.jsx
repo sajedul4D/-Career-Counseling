@@ -4,7 +4,11 @@ import banner from "../../assets/undraw_to-the-moon_w1wa.svg"
 import {  useLoaderData } from 'react-router-dom';
 import { IoIosStar } from 'react-icons/io';
 import { FaClock, FaTimes, FaUserTimes, FaVideo } from "react-icons/fa";
+import toast from 'react-hot-toast';
 const Details = () => {
+    const handleComment=()=>{
+        toast.success("Your purchase has been confirmed!")
+    }
     const {information,author,rating,counselor,duration,pricing,description,category,service_name,image,Time,Videos,Difficulty}=useLoaderData()
     return (
         <div className='w-5/6 mx-auto'>
@@ -47,6 +51,10 @@ const Details = () => {
         <span className='text-xl font-bold text-green-700'>{rating}</span></div>
         <p className='font-mono text-gray-500'>{description}</p>
         <p className='flex flex-col space-y-3'><span className='text-xl font-bold text-gray-500'>What can we learn?</span> <span className='font-serif'>{information}</span></p>
+        <div>
+          <input type="text" placeholder='Write a Comment' className='  p-1' name="" id="" />
+        <button className='btn btn-active' onClick={handleComment}>Comment</button>
+        </div>
                 </div>
                 <div className='w-[50%]'>
                     <img className='rounded-3xl' src={image} alt="" />

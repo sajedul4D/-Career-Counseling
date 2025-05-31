@@ -5,11 +5,15 @@ import { authContext } from './Authprovider/AuthProvider';
 const Heading = () => {
   const {user,handleLogOut}=useContext(authContext)
     const liks=<>
-    <NavLink>Home</NavLink>
-    <NavLink to="/course">Course</NavLink>
-    <NavLink>Contact</NavLink>
-
-    
+    <NavLink className={({ isActive }) => `rounded-full btn  ${isActive ? 'bg-green-400 text-white' : 'text-black hover: hover:text-white'}`}>Home</NavLink>
+    <NavLink className={({ isActive }) => `rounded-full btn  ${isActive ? 'bg-purple-600 text-white' : 'text-black hover:bg-purple-600 hover:text-white'}`} to="/course">Course</NavLink>
+   
+    {
+      user&&  user?.email ? <NavLink className={({ isActive }) => `rounded-full btn  ${isActive ? 'bg-purple-600 text-white' : 'text-black hover:bg-purple-600 hover:text-white'}`} to="/contact">Contact</NavLink>:''
+    }
+    {
+      user&&  user?.email ?<NavLink className={({ isActive }) => `rounded-full btn  ${isActive ? 'bg-purple-600 text-white' : 'text-black hover:bg-purple-600 hover:text-white'}`} to="/profile">Profile</NavLink>:''
+    }
   
     
     </>
@@ -43,9 +47,9 @@ const Heading = () => {
     <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
   </div>
 </div>
-{user && <p>{user?.email}</p>}
+{user && <p>{user?.displayName}</p>}
 
-{user && user?.email ? <button onClick={handleLogOut} className='btn btn-warning'>LogOut</button>:<Link to="/login" className='btn btn-neutral'>Login</Link>}
+{user && user?.displayName ? <button onClick={handleLogOut} className='btn btn-warning'>LogOut</button>:<Link to="/login" className='btn btn-neutral'>Login</Link>}
   </div>
 </div>
     );

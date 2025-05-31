@@ -1,23 +1,46 @@
 import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { authContext } from '../Authprovider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import auth from '../firebase';
 
 const Login = () => {
   const {handleLogin}=useContext(authContext)
+  const location=useLocation();
+  const navigate=useNavigate()
+  const provider=new GoogleAuthProvider()
     const handleUserLogin=(e)=>{
       e.preventDefault()
       const email=e.target.email.value 
       const password=e.target.password.value
           handleLogin(email,password)
           .then(result=>{
+            navigate(location?.state ?location?.state :'/')
             console.log(result.user);
+            toast.success("successFully Login")
           })
           .catch(err=>{
             console.log(err);
+            toast.error("auth/invalid-credential-password")
           })
+          
+          
 
     }
+    const handleGoogle=()=>{
+      signInWithPopup(auth,provider).then(result=>{
+        console.log(result.user);
+        navigate(location?.state ?location?.state :'/')
+        toast.success(" Google login SuccessFully");
+      })
+      .catch(err=>{
+        console.error(err)
+        toast.error("Google login failed");
+      })
+    }
+    
     return (
         <div className=' mt-5'>
         <h2 className='text-center text-2xl font-serif'>Login Your Account</h2>
@@ -37,7 +60,7 @@ const Login = () => {
     </form>
     <p className=' text-center text-xl font-bold'><hr /> or <hr /></p>
     <div >
-        <h2 className='flex justify-center items-center btn  text-green-800 text-xl font-sans' ><FaGoogle></FaGoogle> Login With Google</h2>
+        <h2 onClick={handleGoogle} className='flex justify-center items-center btn  text-green-800 text-xl font-sans' ><FaGoogle></FaGoogle> Login With Google</h2>
     </div>
   </div>
 </div>

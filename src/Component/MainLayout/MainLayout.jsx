@@ -7,6 +7,8 @@ import Details from "../Page/Details";
 import Register from "../Page/Register";
 import Login from "../Page/Login";
 import PrivetRouter from "../PrivetRouter/PrivetRouter";
+import Profile from "../Page/Profile";
+import Contact from "../Page/Contact";
 
 
  const router= createBrowserRouter([
@@ -46,6 +48,13 @@ import PrivetRouter from "../PrivetRouter/PrivetRouter";
                     {
                      path:"/login",
                      element:<Login></Login>
+                    },{
+                     path:'/profile',
+                     element:<Profile></Profile>
+                    }
+                    ,{
+                     path:'/contact',
+                     element:<Contact></Contact>
                     }
                    
         ]
