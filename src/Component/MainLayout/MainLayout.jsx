@@ -6,6 +6,7 @@ import Course from "../Page/Course";
 import Details from "../Page/Details";
 import Register from "../Page/Register";
 import Login from "../Page/Login";
+import PrivetRouter from "../PrivetRouter/PrivetRouter";
 
 
  const router= createBrowserRouter([
@@ -30,7 +31,7 @@ import Login from "../Page/Login";
                      loader:()=>fetch("../category.json")
                     },{
                      path:'/details/:id',
-                     element:<Details></Details>,
+                     element:<PrivetRouter><Details></Details></PrivetRouter>,
                      loader:async({params})=>{
                         const data= await fetch('../category.json')
                         const details=await data.json()

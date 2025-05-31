@@ -16,14 +16,6 @@ const Register = () => {
         const email=form.get("email")
         const password=form.get("password")
         setError('')
-        if(password.length <6){
-          setError('password  must be at least 6 character')
-          return
-        }
-        const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-        if(!regex.text(password)){
-          setError('Password must contain at least one uppercase, one lowercase letter and be at least 6 characters long.')
-        }
         handleRegister(email,password)
         .then(result=>{
           console.log(result.user);
@@ -31,11 +23,15 @@ const Register = () => {
         .catch(err=>{
           console.log(err);
         })
+        
+
+        
+        
        
         
     }
     return (
-        <div className=' mt-5'>
+        <div className=' '>
             <h2 className='text-center text-2xl font-serif'>Create A Account</h2>
              <div className="card bg-base-100 w-full max-w-lg mx-auto  shadow-2xl p-3 bg-gradient-to-b to-green-100 border-l-8 rounded-2xl border-blue-300">
       <div className="card-body ">
