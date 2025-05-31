@@ -2,33 +2,33 @@ import React from 'react';
 import animation from "../../assets/Animation - 1726853937162.gif"
 import bgBaneer from '../../assets/layered-steps-haikei.png'
 import bgBanner1 from '../../assets/wave-haikei.png'
-import { FaRegCalendarAlt, FaRegCalendarCheck, FaRegCalendarTimes } from "react-icons/fa";
+import {  FaRegCalendarCheck, FaRegCalendarTimes } from "react-icons/fa";
 
 const Banner = () => {
     return (
         
             <div className=''> 
-            <div className="carousel w-[100%] mx-w-[750px]  mx-auto ">
+            <div className="carousel  w-[100%] mx-w-[750px]  mx-auto ">
   <div id="slide1" className="carousel-item relative w-full">
   <div >
-    <div className='flex justify-center items-center gap-10 lg:gap-40  bg-blue-100 '>
+    <div className='lg:flex  lg:justify-center  lg:mt-2 lg:items-center gap-10 lg:gap-40  bg-blue-100 '>
  
-<div className='w-[50%] ml-20  space-y-5'>
+<div className=' lg:w-[50%] lg:ml-20 mt-3  space-y-5'>
 <h1 className='text-4xl font-bold  text-green-200 text-center '> Career Counseling –   Guiding You   to a Brighter Future</h1>
 
 <p className='text-center text-2xl font-semibold  '> Best Online Learning & <span>Resources!</span> </p>
 <img className='w-[50px] mx-auto'  src={animation} alt="" />
 </div>
-   <div className='w-[50%] '>
+   <div className='lg:w-[50%] '>
      
-   <img className='h-[450px]' src="https://uiparadox.co.uk/templates/educate/v3/assets/media/banners/hero-banner-1/main-img.png" alt="" />
+   <img className='h-[250px] lg:h-[450px] mx-auto' src="https://uiparadox.co.uk/templates/educate/v3/assets/media/banners/hero-banner-1/main-img.png" alt="" />
 
    </div>
  </div>
     
    
 </div>
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+    <div className="absolute left-5 right-5 lg:top-1/2 top-[220px]  flex -translate-y-1/2 transform justify-between">
       <a href="#slide4" className="btn btn-circle">❮</a>
       <a href="#slide2" className="btn btn-circle">❯</a>
     </div>
@@ -71,11 +71,11 @@ style={{
  Achive Your Goal
  </h1>
  
- <p className='text-center text-2xl font-semibold  '> 
+ <div className='text-center text-2xl font-semibold  '> 
  
 
-<ul className='space-y-3'>
-  <li className='flex gap-2 justify-center items-center'>
+<div className='space-y-3'>
+  <div className='flex gap-2 justify-center items-center'>
     <img className='w-[50px]' src="https://img.freepik.com/premium-vector/hand-drawn-green-icon-red-backdrop-checkmark-right-vector-icon-hand-drawn_194782-807.jpg" alt="" /> Achieve your goals, one step at a time.
 
 
@@ -84,18 +84,18 @@ style={{
 
 
 
-</li>
-<li className='flex gap-2 justify-center items-center'>
-<img className='w-[50px]' src="https://img.freepik.com/premium-vector/hand-drawn-green-icon-red-backdrop-checkmark-right-vector-icon-hand-drawn_194782-807.jpg" alt="" /> Dream big, plan smart, achieve more.</li>
-<li className='flex gap-2 justify-center items-center'>
-<img className='w-[50px]' src="https://img.freepik.com/premium-vector/hand-drawn-green-icon-red-backdrop-checkmark-right-vector-icon-hand-drawn_194782-807.jpg" alt="" /> Turn your ambition into achievement.</li>
-<li className='flex gap-2 justify-center items-center'>
-<img className='w-[50px]' src="https://img.freepik.com/premium-vector/hand-drawn-green-icon-red-backdrop-checkmark-right-vector-icon-hand-drawn_194782-807.jpg" alt="" /> Set goals. Stay focused. Succeed.</li>
-<li className='flex gap-2 justify-center items-center text-center'>
-<img className='w-[50px]' src="https://img.freepik.com/premium-vector/hand-drawn-green-icon-red-backdrop-checkmark-right-vector-icon-hand-drawn_194782-807.jpg" alt="" /> Where goals meet guidance — your success journey starts here.</li>
-</ul>
+</div>
+<div className='flex gap-2 justify-center items-center'>
+<img className='w-[50px]' src="https://img.freepik.com/premium-vector/hand-drawn-green-icon-red-backdrop-checkmark-right-vector-icon-hand-drawn_194782-807.jpg" alt="" /> Dream big, plan smart, achieve more.</div>
+<div className='flex gap-2 justify-center items-center'>
+<img className='w-[50px]' src="https://img.freepik.com/premium-vector/hand-drawn-green-icon-red-backdrop-checkmark-right-vector-icon-hand-drawn_194782-807.jpg" alt="" /> Turn your ambition into achievement.</div>
+<div className='flex gap-2 justify-center items-center'>
+<img className='w-[50px]' src="https://img.freepik.com/premium-vector/hand-drawn-green-icon-red-backdrop-checkmark-right-vector-icon-hand-drawn_194782-807.jpg" alt="" /> Set goals. Stay focused. Succeed.</div>
+<div className='flex gap-2 justify-center items-center text-center'>
+<img className='w-[50px]' src="https://img.freepik.com/premium-vector/hand-drawn-green-icon-red-backdrop-checkmark-right-vector-icon-hand-drawn_194782-807.jpg" alt="" /> Where goals meet guidance — your success journey starts here.</div>
+</div>
  
-  </p>
+  </div>
  <img className='w-[50px] mx-auto'  src={animation} alt="" />
  </div>
     <div className='w-[50%] '>
